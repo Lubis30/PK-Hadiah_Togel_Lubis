@@ -402,8 +402,8 @@
     input[type="number"]::-webkit-outer-spin-button { opacity: 0.4; }
 
     .result {
-      margin-top: 16px;
       padding: 16px 18px;
+      padding-right: 70px;
       background: linear-gradient(135deg, #06060e, #0a0a16);
       border: 1px solid #c8a84b33;
       border-left: 3px solid var(--gold);
@@ -415,9 +415,48 @@
       white-space: pre-line;
       display: none;
       box-shadow: 0 0 20px #ffd70008, inset 0 0 30px #ffd70005;
+      user-select: text;
+      -webkit-user-select: text;
     }
 
     .result.show { display: block; animation: slideDown 0.3s ease; }
+
+    /* ===== COPY BUTTON ===== */
+    .result-wrap { position: relative; margin-top: 16px; }
+    .copy-btn {
+      position: absolute;
+      top: 10px; right: 10px;
+      display: none;
+      background: linear-gradient(180deg, #2a2210, #1a1408);
+      border: 1px solid #c8a84b55;
+      border-radius: 4px;
+      color: #c8a84b;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      padding: 5px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 2px 0 #8a440044, 0 4px 10px #00000066;
+      z-index: 10;
+      user-select: none;
+    }
+    .copy-btn:hover {
+      background: linear-gradient(180deg, #3a3010, #2a2010);
+      border-color: #FFD700;
+      color: #FFD700;
+      box-shadow: 0 2px 0 #8a440066, 0 4px 15px #ffd70022;
+      transform: translateY(-1px);
+    }
+    .copy-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 0 #8a440066;
+    }
+    .copy-btn.copied {
+      color: #44ff88;
+      border-color: #44ff88;
+      background: linear-gradient(180deg, #0a2010, #051408);
+    }
 
     /* ===== ANIMATIONS ===== */
     @keyframes fadeInUp {
@@ -526,7 +565,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalColokAll" placeholder="Masukkan nominal">
-        <div id="hasilColokAll" class="result"></div>
+        <div class="result-wrap"><div id="hasilColokAll" class="result"></div><button class="copy-btn" onclick="copyResult('hasilColokAll',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Bett</h2>
@@ -540,7 +579,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalBettAll" placeholder="Masukkan nominal">
-        <div id="hasilBettAll" class="result"></div>
+        <div class="result-wrap"><div id="hasilBettAll" class="result"></div><button class="copy-btn" onclick="copyResult('hasilBettAll',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Shio</h2>
@@ -558,7 +597,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalShioAll" placeholder="Masukkan nominal">
-        <div id="hasilShioAll" class="result"></div>
+        <div class="result-wrap"><div id="hasilShioAll" class="result"></div><button class="copy-btn" onclick="copyResult('hasilShioAll',this)">COPY</button></div>
       </div>
     </div>
   </div>
@@ -582,7 +621,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalColokHk" placeholder="Masukkan nominal">
-        <div id="hasilColokHk" class="result"></div>
+        <div class="result-wrap"><div id="hasilColokHk" class="result"></div><button class="copy-btn" onclick="copyResult('hasilColokHk',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Bett</h2>
@@ -596,7 +635,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalBettHk" placeholder="Masukkan nominal">
-        <div id="hasilBettHk" class="result"></div>
+        <div class="result-wrap"><div id="hasilBettHk" class="result"></div><button class="copy-btn" onclick="copyResult('hasilBettHk',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Shio</h2>
@@ -614,7 +653,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalShioHk" placeholder="Masukkan nominal">
-        <div id="hasilShioHk" class="result"></div>
+        <div class="result-wrap"><div id="hasilShioHk" class="result"></div><button class="copy-btn" onclick="copyResult('hasilShioHk',this)">COPY</button></div>
       </div>
     </div>
   </div>
@@ -638,7 +677,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalColokMacau4D" placeholder="Masukkan nominal">
-        <div id="hasilColokMacau4D" class="result"></div>
+        <div class="result-wrap"><div id="hasilColokMacau4D" class="result"></div><button class="copy-btn" onclick="copyResult('hasilColokMacau4D',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Bett</h2>
@@ -652,7 +691,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalBettMacau4D" placeholder="Masukkan nominal">
-        <div id="hasilBettMacau4D" class="result"></div>
+        <div class="result-wrap"><div id="hasilBettMacau4D" class="result"></div><button class="copy-btn" onclick="copyResult('hasilBettMacau4D',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Shio</h2>
@@ -670,7 +709,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalShioMacau4D" placeholder="Masukkan nominal">
-        <div id="hasilShioMacau4D" class="result"></div>
+        <div class="result-wrap"><div id="hasilShioMacau4D" class="result"></div><button class="copy-btn" onclick="copyResult('hasilShioMacau4D',this)">COPY</button></div>
       </div>
     </div>
   </div>
@@ -695,7 +734,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalColokMacau5D" placeholder="Masukkan nominal">
-        <div id="hasilColokMacau5D" class="result"></div>
+        <div class="result-wrap"><div id="hasilColokMacau5D" class="result"></div><button class="copy-btn" onclick="copyResult('hasilColokMacau5D',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Bett</h2>
@@ -708,7 +747,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalBettMacau5D" placeholder="Masukkan nominal">
-        <div id="hasilBettMacau5D" class="result"></div>
+        <div class="result-wrap"><div id="hasilBettMacau5D" class="result"></div><button class="copy-btn" onclick="copyResult('hasilBettMacau5D',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Shio</h2>
@@ -723,7 +762,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalShioMacau5D" placeholder="Masukkan nominal">
-        <div id="hasilShioMacau5D" class="result"></div>
+        <div class="result-wrap"><div id="hasilShioMacau5D" class="result"></div><button class="copy-btn" onclick="copyResult('hasilShioMacau5D',this)">COPY</button></div>
       </div>
     </div>
   </div>
@@ -748,7 +787,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalColokJakarta" placeholder="Masukkan nominal">
-        <div id="hasilColokJakarta" class="result"></div>
+        <div class="result-wrap"><div id="hasilColokJakarta" class="result"></div><button class="copy-btn" onclick="copyResult('hasilColokJakarta',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Bett</h2>
@@ -761,7 +800,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalBettJakarta" placeholder="Masukkan nominal">
-        <div id="hasilBettJakarta" class="result"></div>
+        <div class="result-wrap"><div id="hasilBettJakarta" class="result"></div><button class="copy-btn" onclick="copyResult('hasilBettJakarta',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Shio</h2>
@@ -779,7 +818,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalShioJakarta" placeholder="Masukkan nominal">
-        <div id="hasilShioJakarta" class="result"></div>
+        <div class="result-wrap"><div id="hasilShioJakarta" class="result"></div><button class="copy-btn" onclick="copyResult('hasilShioJakarta',this)">COPY</button></div>
       </div>
     </div>
   </div>
@@ -803,7 +842,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalColokTotomali" placeholder="Masukkan nominal">
-        <div id="hasilColokTotomali" class="result"></div>
+        <div class="result-wrap"><div id="hasilColokTotomali" class="result"></div><button class="copy-btn" onclick="copyResult('hasilColokTotomali',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Bett</h2>
@@ -817,7 +856,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalBettTotomali" placeholder="Masukkan nominal">
-        <div id="hasilBettTotomali" class="result"></div>
+        <div class="result-wrap"><div id="hasilBettTotomali" class="result"></div><button class="copy-btn" onclick="copyResult('hasilBettTotomali',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Shio</h2>
@@ -835,7 +874,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalShioTotomali" placeholder="Masukkan nominal">
-        <div id="hasilShioTotomali" class="result"></div>
+        <div class="result-wrap"><div id="hasilShioTotomali" class="result"></div><button class="copy-btn" onclick="copyResult('hasilShioTotomali',this)">COPY</button></div>
       </div>
     </div>
   </div>
@@ -860,7 +899,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalColokHokidraw" placeholder="Masukkan nominal">
-        <div id="hasilColokHokidraw" class="result"></div>
+        <div class="result-wrap"><div id="hasilColokHokidraw" class="result"></div><button class="copy-btn" onclick="copyResult('hasilColokHokidraw',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Bett</h2>
@@ -876,7 +915,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalBettHokidraw" placeholder="Masukkan nominal">
-        <div id="hasilBettHokidraw" class="result"></div>
+        <div class="result-wrap"><div id="hasilBettHokidraw" class="result"></div><button class="copy-btn" onclick="copyResult('hasilBettHokidraw',this)">COPY</button></div>
       </div>
       <div class="section">
         <h2>Tipe Shio</h2>
@@ -894,7 +933,7 @@
         </select>
         <label>Nominal</label>
         <input type="number" id="nominalShioHokidraw" placeholder="Masukkan nominal">
-        <div id="hasilShioHokidraw" class="result"></div>
+        <div class="result-wrap"><div id="hasilShioHokidraw" class="result"></div><button class="copy-btn" onclick="copyResult('hasilShioHokidraw',this)">COPY</button></div>
       </div>
     </div>
   </div>
@@ -905,7 +944,8 @@
 <script>
 /* ===== PROTECTION ===== */
 (function(){
-  // Overlay peringatan
+
+  /* --- Buat overlay peringatan --- */
   function showWarning(){
     let ov = document.getElementById('__warn__');
     if(ov){ ov.style.display='flex'; return; }
@@ -913,46 +953,72 @@
     ov.id = '__warn__';
     ov.style.cssText = `
       position:fixed;inset:0;z-index:99999;
-      background:rgba(5,5,8,0.97);
+      background:rgba(3,3,6,0.96);
       display:flex;flex-direction:column;
       align-items:center;justify-content:center;
       font-family:'Orbitron',sans-serif;
       cursor:pointer;
+      backdrop-filter:blur(6px);
     `;
     ov.innerHTML = `
       <div style="
-        text-align:center;
-        padding:40px;
-        border:1px solid #c8a84b55;
-        border-radius:8px;
-        background:linear-gradient(135deg,#0d0d14,#1a1408);
-        box-shadow:0 0 60px #ffd70022, 0 0 120px #00000099;
-        max-width:480px;
+        text-align:center;padding:50px 44px;
+        border:1px solid #c8a84b44;
+        border-radius:12px;
+        background:linear-gradient(160deg,#0d0d18,#1a1508,#0d0d18);
+        box-shadow:
+          0 0 0 1px #c8a84b22,
+          0 4px 0 #8a440066,
+          0 8px 0 #60280044,
+          0 12px 40px #00000099,
+          0 0 80px #ffd70011,
+          inset 0 1px 0 #ffffff0a;
+        max-width:500px;width:90%;
+        position:relative;overflow:hidden;
       ">
         <div style="
-          font-size:clamp(22px,6vw,48px);
-          font-weight:900;
-          line-height:1.1;
-          margin-bottom:16px;
-          background:linear-gradient(180deg,#fff5cc,#FFD700,#c87000);
-          -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-          background-clip:text;
-          filter:drop-shadow(0 2px 0 #8a440077) drop-shadow(0 0 30px #ffd70044);
-        ">JANGAN CURI<br>BUAT SENDIRI DONG</div>
+          position:absolute;inset:0;
+          background:radial-gradient(ellipse 100% 60% at 50% 0%,#3a280044,transparent);
+          pointer-events:none;
+        "></div>
         <div style="
           font-family:'Share Tech Mono',monospace;
-          font-size:11px;
-          letter-spacing:4px;
-          color:#00e5ff;
-          margin-bottom:8px;
-          text-shadow:0 0 15px #00e5ff88;
+          font-size:10px;letter-spacing:8px;
+          color:#00e5ff;margin-bottom:20px;
+          text-shadow:0 0 20px #00e5ffaa;
+          position:relative;
+        ">&#9888; PERINGATAN &#9888;</div>
+        <div style="
+          font-size:clamp(20px,5.5vw,42px);
+          font-weight:900;line-height:1.15;
+          margin-bottom:18px;
+          background:linear-gradient(180deg,#ffffff 0%,#ffe566 25%,#FFD700 55%,#c87000 100%);
+          -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+          background-clip:text;
+          filter:drop-shadow(0 3px 0 #8a440088) drop-shadow(0 6px 0 #40180055) drop-shadow(0 0 40px #ffd70055);
+          position:relative;
+        ">JANGAN CURI<br>BUAT SENDIRI<br>DONG</div>
+        <div style="
+          width:180px;height:1px;
+          background:linear-gradient(90deg,transparent,#00e5ff,#FFD700,#00e5ff,transparent);
+          margin:0 auto 18px;
+          box-shadow:0 0 8px #ffd70066;
+          position:relative;
+        "></div>
+        <div style="
+          font-family:'Share Tech Mono',monospace;
+          font-size:11px;letter-spacing:5px;
+          color:#c8a84b;margin-bottom:6px;
+          text-shadow:0 0 12px #c8a84b88;
+          position:relative;
         ">PK HADIAH TOGEL LUBIS</div>
         <div style="
           font-family:'Share Tech Mono',monospace;
-          font-size:10px;
-          letter-spacing:2px;
-          color:#7a6a40;
-          margin-top:20px;
+          font-size:10px;letter-spacing:2px;
+          color:#3a3020;margin-top:28px;
+          border:1px solid #c8a84b22;
+          padding:8px 20px;border-radius:4px;
+          display:inline-block;position:relative;
         ">[ KLIK UNTUK MENUTUP ]</div>
       </div>
     `;
@@ -960,49 +1026,72 @@
     document.body.appendChild(ov);
   }
 
-  // Blokir klik kanan
+  /* --- Cek apakah target ada di dalam .result --- */
+  function isInsideResult(el){
+    while(el){
+      if(el.classList && el.classList.contains('result')) return true;
+      if(el.classList && el.classList.contains('copy-btn'))  return true;
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  /* --- Klik kanan: izinkan di .result, blokir di tempat lain --- */
   document.addEventListener('contextmenu', function(e){
+    if(isInsideResult(e.target)) return; // boleh copy
     e.preventDefault();
     showWarning();
   });
 
-  // Blokir keyboard shortcuts
+  /* --- Keyboard: blokir DevTools / source, IZINKAN Ctrl+C saat fokus di result --- */
   document.addEventListener('keydown', function(e){
     const k = e.key.toLowerCase();
+
     // F12
-    if(e.key==='F12'){ e.preventDefault(); showWarning(); return; }
-    // Ctrl/Cmd + Shift + I/J/C/K/U
-    if((e.ctrlKey||e.metaKey) && e.shiftKey && ['i','j','c','k'].includes(k)){
+    if(e.key === 'F12'){ e.preventDefault(); showWarning(); return; }
+
+    // Ctrl+Shift+I / J / K  (DevTools)
+    if((e.ctrlKey||e.metaKey) && e.shiftKey && ['i','j','k'].includes(k)){
       e.preventDefault(); showWarning(); return;
     }
-    // Ctrl/Cmd + U (view source)
-    if((e.ctrlKey||e.metaKey) && k==='u'){ e.preventDefault(); showWarning(); return; }
-    // Ctrl/Cmd + S (save)
+    // Ctrl+Shift+C hanya blokir kalau TIDAK sedang di result
+    if((e.ctrlKey||e.metaKey) && e.shiftKey && k==='c'){
+      if(!isInsideResult(document.activeElement)){
+        e.preventDefault(); showWarning();
+      }
+      return;
+    }
+    // Ctrl+U (view-source)
+    if((e.ctrlKey||e.metaKey) && !e.shiftKey && k==='u'){ e.preventDefault(); showWarning(); return; }
+    // Ctrl+S
     if((e.ctrlKey||e.metaKey) && k==='s'){ e.preventDefault(); showWarning(); return; }
-    // Ctrl/Cmd + A (select all)
-    if((e.ctrlKey||e.metaKey) && k==='a'){ e.preventDefault(); showWarning(); return; }
-    // Ctrl/Cmd + P (print)
+    // Ctrl+P
     if((e.ctrlKey||e.metaKey) && k==='p'){ e.preventDefault(); showWarning(); return; }
+    // Ctrl+A blokir hanya di luar result
+    if((e.ctrlKey||e.metaKey) && k==='a'){
+      if(!isInsideResult(document.activeElement)){ e.preventDefault(); showWarning(); }
+      return;
+    }
+    // Ctrl+C bebas di mana saja
   });
 
-  // Deteksi DevTools terbuka via ukuran window
-  let devOpen = false;
-  function checkDevTools(){
-    const threshold = 160;
-    const widthDiff  = window.outerWidth  - window.innerWidth;
-    const heightDiff = window.outerHeight - window.innerHeight;
-    if((widthDiff > threshold || heightDiff > threshold) && !devOpen){
-      devOpen = true;
-      showWarning();
-    } else if(widthDiff <= threshold && heightDiff <= threshold){
-      devOpen = false;
-    }
-  }
-  setInterval(checkDevTools, 1000);
+  /* --- Select teks: boleh di .result, blokir di luar --- */
+  document.addEventListener('selectstart', function(e){
+    if(isInsideResult(e.target)) return;
+    e.preventDefault();
+  });
 
-  // Blokir drag & select teks
-  document.addEventListener('selectstart', function(e){ e.preventDefault(); });
-  document.addEventListener('dragstart',   function(e){ e.preventDefault(); });
+  /* --- Drag: blokir di mana saja --- */
+  document.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+  /* --- Deteksi DevTools via window size --- */
+  let devOpen = false;
+  setInterval(function(){
+    const wd = window.outerWidth  - window.innerWidth;
+    const hd = window.outerHeight - window.innerHeight;
+    if((wd > 160 || hd > 160) && !devOpen){ devOpen=true; showWarning(); }
+    else if(wd <= 160 && hd <= 160){ devOpen=false; }
+  }, 1000);
 
 })();
 
@@ -1036,7 +1125,37 @@ function togglePanel(btn){
 /* ===== HELPER ===== */
 function showResult(el, text){
   el.textContent = text;
-  if(text){ el.classList.add('show'); } else { el.classList.remove('show'); }
+  const wrap = el.parentElement;
+  const btn = wrap ? wrap.querySelector('.copy-btn') : null;
+  if(text){
+    el.classList.add('show');
+    if(btn){ btn.style.display='block'; btn.textContent='COPY'; btn.classList.remove('copied'); }
+  } else {
+    el.classList.remove('show');
+    if(btn) btn.style.display='none';
+  }
+}
+
+function copyResult(id, btn){
+  const el = document.getElementById(id);
+  if(!el || !el.textContent) return;
+  navigator.clipboard.writeText(el.textContent).then(()=>{
+    btn.textContent = 'COPIED!';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='COPY'; btn.classList.remove('copied'); }, 2000);
+  }).catch(()=>{
+    // fallback
+    const ta = document.createElement('textarea');
+    ta.value = el.textContent;
+    ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = 'COPIED!';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='COPY'; btn.classList.remove('copied'); }, 2000);
+  });
 }
 const f = (num) => num.toLocaleString('id-ID');
 
