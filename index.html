@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PK HADIAH TOGEL LUBIS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #FFD700;
+      --gold2: #FFA500;
+      --gold3: #fff0a0;
+      --dark: #050508;
+      --dark2: #0d0d14;
+      --dark3: #111120;
+      --card: #16162080;
+      --border: #c8a84b33;
+      --accent: #c8a84b;
+      --accent2: #ffe566;
+      --text: #f5ead0;
+      --muted: #7a6a40;
+      --red: #ff4444;
+      --green: #44ff88;
+      --cyan: #00e5ff;
+    }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ===== BACKGROUND ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 90% 60% at 50% -5%, #3d2a0090 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 85% 85%, #1a0050aa 0%, transparent 55%),
+        radial-gradient(ellipse 40% 50% at 10% 65%, #001a4080 0%, transparent 55%),
+        radial-gradient(ellipse 60% 30% at 50% 100%, #1a0a0060 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Grid lines */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(#c8a84b08 1px, transparent 1px),
+        linear-gradient(90deg, #c8a84b08 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== INTRO SCREEN ===== */
+    #introScreen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      background: var(--dark);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    #introScreen::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 120% 80% at 50% 0%, #4a3300cc 0%, transparent 55%),
+        radial-gradient(ellipse 70% 60% at 80% 95%, #200050aa 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 15% 80%, #001840aa 0%, transparent 50%);
+    }
+
+    #introScreen.hide {
+      opacity: 0;
+      transform: scale(1.05);
+      pointer-events: none;
+    }
+
+    .intro-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .intro-subtitle {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 10px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      animation: fadeInUp 0.8s ease 0.2s both;
+      text-shadow: 0 0 20px #00e5ff88;
+    }
+
+    .intro-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: clamp(44px, 14vw, 110px);
+      line-height: 0.95;
+      background: linear-gradient(180deg, #ffffff 0%, #ffe566 25%, #FFD700 55%, #c87000 85%, #8a4400 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 2px 0 #8a440088) drop-shadow(0 4px 0 #60280055) drop-shadow(0 8px 0 #40180033) drop-shadow(0 0 60px #ffd70055);
+      animation: fadeInUp 0.8s ease 0.4s both, pulse-glow 3s ease-in-out infinite;
+      margin-bottom: 6px;
+    }
+
+    .intro-title span {
+      display: block;
+    }
+
+    .intro-brand {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: clamp(13px, 3.5vw, 26px);
+      letter-spacing: 6px;
+      background: linear-gradient(90deg, #c8a84b, #ffe566, #c8a84b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4px;
+      animation: fadeInUp 0.8s ease 0.55s both;
+      text-shadow: none;
+      filter: drop-shadow(0 0 12px #ffd70066);
+    }
+
+    .intro-line {
+      width: 260px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), var(--gold), var(--cyan), transparent);
+      margin: 18px auto;
+      animation: fadeInUp 0.8s ease 0.6s both;
+      box-shadow: 0 0 10px #ffd70066;
+    }
+
+    .intro-desc {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 3px;
+      margin-bottom: 50px;
+      animation: fadeInUp 0.8s ease 0.7s both;
+    }
+
+    .btn-masuk {
+      position: relative;
+      display: inline-block;
+      padding: 18px 70px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 5px;
+      color: #050508;
+      background: linear-gradient(180deg, #fff5a0 0%, #FFD700 40%, #c87000 100%);
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      animation: fadeInUp 0.8s ease 0.9s both;
+      box-shadow:
+        0 2px 0 #8a4400,
+        0 4px 0 #602800,
+        0 6px 0 #401800,
+        0 10px 30px #ffd70044,
+        0 20px 60px #00000088,
+        inset 0 1px 0 #fff8;
+      transition: transform 0.15s, box-shadow 0.15s;
+      overflow: hidden;
+    }
+
+    .btn-masuk::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #fff8 0%, transparent 50%);
+      opacity: 0.5;
+      transition: opacity 0.3s;
+    }
+
+    .btn-masuk:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 4px 0 #8a4400,
+        0 6px 0 #602800,
+        0 8px 0 #401800,
+        0 14px 40px #ffd70066,
+        0 25px 70px #00000099,
+        inset 0 1px 0 #fff8;
+    }
+
+    .btn-masuk:active {
+      transform: translateY(4px);
+      box-shadow:
+        0 0px 0 #8a4400,
+        0 2px 0 #602800,
+        0 4px 20px #ffd70033,
+        inset 0 1px 0 #fff4;
+    }
+
+    /* ===== MAIN APP ===== */
+    #mainApp {
+      display: none;
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    #mainApp.show { display: block; }
+
+    /* ===== TOP HEADER ===== */
+    .app-header {
+      text-align: center;
+      padding: 30px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 35px;
+    }
+
+    .app-header-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 8px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      text-shadow: 0 0 15px #00e5ff99;
+    }
+
+    .app-header-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: clamp(24px, 7vw, 56px);
+      background: linear-gradient(180deg, #ffffff 0%, #ffe566 30%, #FFD700 60%, #c87000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 2px 0 #8a440077) drop-shadow(0 4px 0 #40180033) drop-shadow(0 0 30px #ffd70033);
+    }
+
+    .app-header-brand {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: clamp(10px, 2.5vw, 18px);
+      letter-spacing: 5px;
+      background: linear-gradient(90deg, #c8a84b, #ffe566, #c8a84b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 8px #ffd70055);
+      margin-top: 4px;
+    }
+
+    /* ===== ACCORDION ===== */
+    .accordion-wrap {
+      margin-bottom: 14px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px #00000055;
+      border: 1px solid var(--border);
+    }
+
+    .accordion-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #100e04, #1e1a08, #100e04);
+      border: none;
+      color: var(--gold);
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 3px;
+      padding: 18px 24px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s;
+      border-left: 3px solid var(--gold2);
+      text-shadow: 0 0 20px #ffd70066;
+    }
+
+    .accordion-btn:hover {
+      background: linear-gradient(135deg, #1e1a0a, #2e280e, #1e1a0a);
+    }
+
+    .accordion-btn.active {
+      background: linear-gradient(135deg, #1e1a0a, #2e2808, #1e1a0a);
+      color: var(--accent2);
+      border-left-color: var(--cyan);
+    }
+
+    .accordion-arrow {
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      transition: transform 0.35s;
+      flex-shrink: 0;
+    }
+
+    .accordion-btn.active .accordion-arrow {
+      transform: rotate(180deg);
+    }
+
+    .panel {
+      display: none;
+      background: var(--dark2);
+      padding: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .panel.open { display: block; }
+
+    /* ===== SECTION ===== */
+    .section {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .section:last-child { margin-bottom: 0; }
+
+    .section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #00e5ff22;
+      text-shadow: 0 0 15px #00e5ff88;
+    }
+
+    label {
+      display: block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: 11px 14px;
+      background: #06060e;
+      border: 1px solid #c8a84b22;
+      border-radius: 4px;
+      color: var(--text);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c8a84b' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    select:focus, input[type="number"]:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px #ffd70015, 0 0 20px #ffd70010;
+    }
+
+    select option { background: #0d0d14; color: var(--text); }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button { opacity: 0.4; }
+
+    .result {
+      margin-top: 16px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #06060e, #0a0a16);
+      border: 1px solid #c8a84b33;
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12.5px;
+      line-height: 2.1;
+      color: #f0dcaa;
+      white-space: pre-line;
+      display: none;
+      box-shadow: 0 0 20px #ffd70008, inset 0 0 30px #ffd70005;
+    }
+
+    .result.show { display: block; animation: slideDown 0.3s ease; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { filter: drop-shadow(0 0 20px #ffd70044); }
+      50% { filter: drop-shadow(0 0 60px #ffd70088); }
+    }
+
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* ===== SPARKLE DOTS ===== */
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: twinkle var(--d) ease-in-out infinite;
+      opacity: 0;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 0.8; transform: scale(1.5); }
+    }
+
+    .footer-line {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Stars background -->
+<div class="stars" id="stars"></div>
+
+<!-- ===== INTRO SCREEN ===== -->
+<div id="introScreen">
+  <div class="intro-content">
+    <div class="intro-subtitle">Kalkulator Kemenangan</div>
+    <div class="intro-brand">TOGEL LUBIS</div>
+    <div class="intro-title">
+      <span>PK</span>
+      <span>HADIAH</span>
+    </div>
+    <div class="intro-line"></div>
+    <div class="intro-desc">Hitung hadiah semua pasaran dengan cepat</div>
+    <button class="btn-masuk" onclick="masukApp()">PK HADIAH</button>
+  </div>
+</div>
+
+<!-- ===== MAIN APP ===== -->
+<div id="mainApp">
+  <div class="app-header">
+    <div class="app-header-label">Kalkulator Kemenangan</div>
+    <div class="app-header-title">PK HADIAH</div>
+    <div class="app-header-brand">TOGEL LUBIS</div>
+  </div>
+
+  <!-- ======== ALL PASARAN ======== -->
+  <div class="accordion-wrap">
+    <button class="accordion-btn" onclick="togglePanel(this)">
+      ALL PASARAN
+      <div class="accordion-arrow">&#8964;</div>
+    </button>
+    <div class="panel">
+      <div class="section">
+        <h2>Tipe Colok</h2>
+        <label>Pilih Tipe Colok</label>
+        <select id="tipeColokAll">
+          <option value="">-- Pilih --</option>
+          <option value="COLOK_BEBAS">Colok Bebas</option>
+          <option value="COLOK_BEBAS_2D">Colok Bebas 2D</option>
+          <option value="COLOK_NAGA">Colok Naga</option>
+          <option value="COLOK_JITU">Colok Jitu</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalColokAll" placeholder="Masukkan nominal">
+        <div id="hasilColokAll" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Bett</h2>
+        <label>Pilih Tipe Bett</label>
+        <select id="tipeBettAll">
+          <option value="">-- Pilih --</option>
+          <option value="FULL">Full</option>
+          <option value="DISKON">Diskon</option>
+          <option value="BOLAKBALIK">Bolak Balik</option>
+          <option value="PRIZE">Prize</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalBettAll" placeholder="Masukkan nominal">
+        <div id="hasilBettAll" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Shio</h2>
+        <label>Pilih Tipe Shio</label>
+        <select id="tipeShioAll">
+          <option value="">-- Pilih --</option>
+          <option value="SHIO">Shio</option>
+          <option value="TENGAHTEPI">Tengah Tepi</option>
+          <option value="5050">50-50</option>
+          <option value="SILANGHOMO">Silang Homo</option>
+          <option value="KEMBANGKEMPIS">Kembang Kempis</option>
+          <option value="MACAUSHIO">Macau Shio</option>
+          <option value="DASAR">Dasar</option>
+          <option value="KOMBINASI">Kombinasi</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalShioAll" placeholder="Masukkan nominal">
+        <div id="hasilShioAll" class="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== HK & SYDNEY ======== -->
+  <div class="accordion-wrap">
+    <button class="accordion-btn" onclick="togglePanel(this)">
+      PASARAN HK & SYDNEY
+      <div class="accordion-arrow">&#8964;</div>
+    </button>
+    <div class="panel">
+      <div class="section">
+        <h2>Tipe Colok</h2>
+        <label>Pilih Tipe Colok</label>
+        <select id="tipeColokHk">
+          <option value="">-- Pilih --</option>
+          <option value="COLOK_BEBAS">Colok Bebas</option>
+          <option value="COLOK_BEBAS_2D">Colok Bebas 2D</option>
+          <option value="COLOK_NAGA">Colok Naga</option>
+          <option value="COLOK_JITU">Colok Jitu</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalColokHk" placeholder="Masukkan nominal">
+        <div id="hasilColokHk" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Bett</h2>
+        <label>Pilih Tipe Bett</label>
+        <select id="tipeBettHk">
+          <option value="">-- Pilih --</option>
+          <option value="FULL">Full</option>
+          <option value="DISKON">Diskon</option>
+          <option value="BOLAKBALIK">Bolak Balik</option>
+          <option value="PRIZE">Prize</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalBettHk" placeholder="Masukkan nominal">
+        <div id="hasilBettHk" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Shio</h2>
+        <label>Pilih Tipe Shio</label>
+        <select id="tipeShioHk">
+          <option value="">-- Pilih --</option>
+          <option value="SHIO">Shio</option>
+          <option value="TENGAHTEPI">Tengah Tepi</option>
+          <option value="5050">50-50</option>
+          <option value="SILANGHOMO">Silang Homo</option>
+          <option value="KEMBANGKEMPIS">Kembang Kempis</option>
+          <option value="MACAUSHIO">Macau Shio</option>
+          <option value="DASAR">Dasar</option>
+          <option value="KOMBINASI">Kombinasi</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalShioHk" placeholder="Masukkan nominal">
+        <div id="hasilShioHk" class="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== TOTOMACAU 4D & KINGKONG 4D ======== -->
+  <div class="accordion-wrap">
+    <button class="accordion-btn" onclick="togglePanel(this)">
+      TOTOMACAU 4D & KINGKONG 4D
+      <div class="accordion-arrow">&#8964;</div>
+    </button>
+    <div class="panel">
+      <div class="section">
+        <h2>Tipe Colok</h2>
+        <label>Pilih Tipe Colok</label>
+        <select id="tipeColokMacau4D">
+          <option value="">-- Pilih --</option>
+          <option value="COLOK_BEBAS">Colok Bebas</option>
+          <option value="COLOK_BEBAS_2D">Colok Bebas 2D</option>
+          <option value="COLOK_NAGA">Colok Naga</option>
+          <option value="COLOK_JITU">Colok Jitu</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalColokMacau4D" placeholder="Masukkan nominal">
+        <div id="hasilColokMacau4D" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Bett</h2>
+        <label>Pilih Tipe Bett</label>
+        <select id="tipeBettMacau4D">
+          <option value="">-- Pilih --</option>
+          <option value="FULL">Full</option>
+          <option value="DISKON">Diskon</option>
+          <option value="BOLAKBALIK">Bolak Balik</option>
+          <option value="SUPERDISKON">Super Diskon</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalBettMacau4D" placeholder="Masukkan nominal">
+        <div id="hasilBettMacau4D" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Shio</h2>
+        <label>Pilih Tipe Shio</label>
+        <select id="tipeShioMacau4D">
+          <option value="">-- Pilih --</option>
+          <option value="SHIO">Shio</option>
+          <option value="TENGAHTEPI">Tengah Tepi</option>
+          <option value="5050">50-50</option>
+          <option value="SILANGHOMO">Silang Homo</option>
+          <option value="KEMBANGKEMPIS">Kembang Kempis</option>
+          <option value="MACAUSHIO">Macau Shio</option>
+          <option value="DASAR">Dasar</option>
+          <option value="KOMBINASI">Kombinasi</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalShioMacau4D" placeholder="Masukkan nominal">
+        <div id="hasilShioMacau4D" class="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== TOTOMACAU 5D ======== -->
+  <div class="accordion-wrap">
+    <button class="accordion-btn" onclick="togglePanel(this)">
+      TOTOMACAU 5D
+      <div class="accordion-arrow">&#8964;</div>
+    </button>
+    <div class="panel">
+      <div class="section">
+        <h2>Tipe Colok</h2>
+        <label>Pilih Tipe Colok</label>
+        <select id="tipeColokMacau5D">
+          <option value="">-- Pilih --</option>
+          <option value="COLOK_BEBAS">Colok Bebas</option>
+          <option value="COLOK_BEBAS_2D">Colok Bebas 2D</option>
+          <option value="COLOK_BEBAS_4D">Colok Bebas 4D</option>
+          <option value="COLOK_NAGA">Colok Naga</option>
+          <option value="COLOK_JITU">Colok Jitu</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalColokMacau5D" placeholder="Masukkan nominal">
+        <div id="hasilColokMacau5D" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Bett</h2>
+        <label>Pilih Tipe Bett</label>
+        <select id="tipeBettMacau5D">
+          <option value="">-- Pilih --</option>
+          <option value="FULL">Full</option>
+          <option value="DISKON">Diskon</option>
+          <option value="BOLAKBALIK">Bolak Balik</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalBettMacau5D" placeholder="Masukkan nominal">
+        <div id="hasilBettMacau5D" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Shio</h2>
+        <label>Pilih Tipe Shio</label>
+        <select id="tipeShioMacau5D">
+          <option value="">-- Pilih --</option>
+          <option value="SHIO">Shio</option>
+          <option value="TENGAHTEPI">Tengah Tepi</option>
+          <option value="5050">50-50</option>
+          <option value="DASAR">Dasar</option>
+          <option value="KOMBINASI">Kombinasi</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalShioMacau5D" placeholder="Masukkan nominal">
+        <div id="hasilShioMacau5D" class="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== JAKARTA ======== -->
+  <div class="accordion-wrap">
+    <button class="accordion-btn" onclick="togglePanel(this)">
+      JAKARTA
+      <div class="accordion-arrow">&#8964;</div>
+    </button>
+    <div class="panel">
+      <div class="section">
+        <h2>Tipe Colok</h2>
+        <label>Pilih Tipe Colok</label>
+        <select id="tipeColokJakarta">
+          <option value="">-- Pilih --</option>
+          <option value="COLOK_BEBAS">Colok Bebas</option>
+          <option value="COLOK_BEBAS_2D">Colok Bebas 2D</option>
+          <option value="COLOK_BEBAS_4D">Colok Bebas 4D</option>
+          <option value="COLOK_NAGA">Colok Naga</option>
+          <option value="COLOK_JITU">Colok Jitu</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalColokJakarta" placeholder="Masukkan nominal">
+        <div id="hasilColokJakarta" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Bett</h2>
+        <label>Pilih Tipe Bett</label>
+        <select id="tipeBettJakarta">
+          <option value="">-- Pilih --</option>
+          <option value="FULL">FULL</option>
+          <option value="DISKON">DISKON</option>
+          <option value="BOLAKBALIK">BOLAK BALIK</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalBettJakarta" placeholder="Masukkan nominal">
+        <div id="hasilBettJakarta" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Shio</h2>
+        <label>Pilih Tipe Shio</label>
+        <select id="tipeShioJakarta">
+          <option value="">-- Pilih --</option>
+          <option value="SHIO">Shio</option>
+          <option value="TENGAHTEPI">Tengah Tepi</option>
+          <option value="5050">50-50</option>
+          <option value="SILANGHOMO">Silang Homo</option>
+          <option value="KEMBANGKEMPIS">Kembang Kempis</option>
+          <option value="MACAUSHIO">Macau Shio</option>
+          <option value="DASAR">Dasar</option>
+          <option value="KOMBINASI">Kombinasi</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalShioJakarta" placeholder="Masukkan nominal">
+        <div id="hasilShioJakarta" class="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== TOTOMALI ======== -->
+  <div class="accordion-wrap">
+    <button class="accordion-btn" onclick="togglePanel(this)">
+      TOTOMALI
+      <div class="accordion-arrow">&#8964;</div>
+    </button>
+    <div class="panel">
+      <div class="section">
+        <h2>Tipe Colok</h2>
+        <label>Pilih Tipe Colok</label>
+        <select id="tipeColokTotomali">
+          <option value="">-- Pilih --</option>
+          <option value="COLOK_BEBAS">Colok Bebas</option>
+          <option value="COLOK_BEBAS_2D">Colok Bebas 2D</option>
+          <option value="COLOK_NAGA">Colok Naga</option>
+          <option value="COLOK_JITU">Colok Jitu</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalColokTotomali" placeholder="Masukkan nominal">
+        <div id="hasilColokTotomali" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Bett</h2>
+        <label>Pilih Tipe Bett</label>
+        <select id="tipeBettTotomali">
+          <option value="">-- Pilih --</option>
+          <option value="FULL">Full</option>
+          <option value="DISKON">Diskon</option>
+          <option value="BOLAKBALIK">Bolak Balik</option>
+          <option value="PRIZE">Prize</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalBettTotomali" placeholder="Masukkan nominal">
+        <div id="hasilBettTotomali" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Shio</h2>
+        <label>Pilih Tipe Shio</label>
+        <select id="tipeShioTotomali">
+          <option value="">-- Pilih --</option>
+          <option value="SHIO">Shio</option>
+          <option value="TENGAHTEPI">Tengah Tepi</option>
+          <option value="5050">50-50</option>
+          <option value="SILANGHOMO">Silang Homo</option>
+          <option value="KEMBANGKEMPIS">Kembang Kempis</option>
+          <option value="MACAUSHIO">Macau Shio</option>
+          <option value="DASAR">Dasar</option>
+          <option value="KOMBINASI">Kombinasi</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalShioTotomali" placeholder="Masukkan nominal">
+        <div id="hasilShioTotomali" class="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== HOKIDRAW ======== -->
+  <div class="accordion-wrap">
+    <button class="accordion-btn" onclick="togglePanel(this)">
+      HOKIDRAW
+      <div class="accordion-arrow">&#8964;</div>
+    </button>
+    <div class="panel">
+      <div class="section">
+        <h2>Tipe Colok</h2>
+        <label>Pilih Tipe Colok</label>
+        <select id="tipeColokHokidraw">
+          <option value="">-- Pilih --</option>
+          <option value="COLOK_BEBAS">Colok Bebas</option>
+          <option value="COLOK_BEBAS_2D">Colok Bebas 2D</option>
+          <option value="COLOK_BEBAS_2D5">Colok Bebas 2D(5)</option>
+          <option value="COLOK_NAGA">Colok Naga</option>
+          <option value="COLOK_JITU">Colok Jitu</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalColokHokidraw" placeholder="Masukkan nominal">
+        <div id="hasilColokHokidraw" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Bett</h2>
+        <label>Pilih Tipe Bett</label>
+        <select id="tipeBettHokidraw">
+          <option value="">-- Pilih --</option>
+          <option value="FULL">Full</option>
+          <option value="DISKON">Diskon</option>
+          <option value="BOLAKBALIK">Bolak Balik</option>
+          <option value="DISKON5D">Diskon 5D</option>
+          <option value="FULL5D">Bet Full 5D</option>
+          <option value="TEPAT5D">5D Tepat</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalBettHokidraw" placeholder="Masukkan nominal">
+        <div id="hasilBettHokidraw" class="result"></div>
+      </div>
+      <div class="section">
+        <h2>Tipe Shio</h2>
+        <label>Pilih Tipe Shio</label>
+        <select id="tipeShioHokidraw">
+          <option value="">-- Pilih --</option>
+          <option value="SHIO">Shio</option>
+          <option value="TENGAHTEPI">Tengah Tepi</option>
+          <option value="5050">50-50</option>
+          <option value="SILANGHOMO">Silang Homo</option>
+          <option value="KEMBANGKEMPIS">Kembang Kempis</option>
+          <option value="MACAUSHIO">Macau Shio</option>
+          <option value="DASAR">Dasar</option>
+          <option value="KOMBINASI">Kombinasi</option>
+        </select>
+        <label>Nominal</label>
+        <input type="number" id="nominalShioHokidraw" placeholder="Masukkan nominal">
+        <div id="hasilShioHokidraw" class="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-line">PK HADIAH TOGEL LUBIS &nbsp;&mdash;&nbsp; SEMUA PASARAN</div>
+</div>
+
+<script>
+/* ===== STARS ===== */
+const starsEl = document.getElementById('stars');
+for(let i=0;i<60;i++){
+  const s=document.createElement('div');
+  s.className='star';
+  s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;animation-delay:${Math.random()*5}s`;
+  starsEl.appendChild(s);
+}
+
+/* ===== INTRO ===== */
+function masukApp(){
+  document.getElementById('introScreen').classList.add('hide');
+  setTimeout(()=>{
+    document.getElementById('introScreen').style.display='none';
+    document.getElementById('mainApp').classList.add('show');
+  },800);
+}
+
+/* ===== ACCORDION ===== */
+function togglePanel(btn){
+  const panel = btn.nextElementSibling;
+  const isOpen = panel.classList.contains('open');
+  btn.classList.toggle('active', !isOpen);
+  if(isOpen){ panel.classList.remove('open'); }
+  else { panel.classList.add('open'); }
+}
+
+/* ===== HELPER ===== */
+function showResult(el, text){
+  el.textContent = text;
+  if(text){ el.classList.add('show'); } else { el.classList.remove('show'); }
+}
+const f = (num) => num.toLocaleString('id-ID');
+
+/* ===================== ALL PASARAN ===================== */
+function updateColokAll(){
+  const tipe = document.getElementById('tipeColokAll').value;
+  const nominal = parseFloat(document.getElementById('nominalColokAll').value);
+  const el = document.getElementById('hasilColokAll');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "COLOK_BEBAS":
+      caption = `Jika anda memasang Colok Bebas dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 1.5 + (${nominal} - (${nominal} x 6%)) = ${(nominal*1.5)+(nominal-(nominal*0.06))}`;
+      break;
+    case "COLOK_BEBAS_2D":
+      caption = `Jika anda memasang Colok Bebas 2D dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 7 + (${nominal} - (${nominal} x 10%)) = ${(nominal*7)+(nominal-(nominal*0.10))} (Kategori 2D)\n`+
+                `${nominal} x 11 + (${nominal} - (${nominal} x 10%)) = ${(nominal*11)+(nominal-(nominal*0.10))} (Kategori 3D)\n`+
+                `${nominal} x 18 + (${nominal} - (${nominal} x 10%)) = ${(nominal*18)+(nominal-(nominal*0.10))} (Kategori 4D)`;
+      break;
+    case "COLOK_NAGA":
+      caption = `Jika anda memasang Colok Naga dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 23 + (${nominal} - (${nominal} x 10%)) = ${(nominal*23)+(nominal-(nominal*0.10))} (Kategori 3D)\n`+
+                `${nominal} x 35 + (${nominal} - (${nominal} x 10%)) = ${(nominal*35)+(nominal-(nominal*0.10))} (Kategori 4D)`;
+      break;
+    case "COLOK_JITU":
+      caption = `Jika anda memasang Colok Jitu dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 8 + (${nominal} - (${nominal} x 6%)) = ${(nominal*8)+(nominal-(nominal*0.06))}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeColokAll').addEventListener('change', updateColokAll);
+document.getElementById('nominalColokAll').addEventListener('input', updateColokAll);
+
+function updateBettAll(){
+  const tipe = document.getElementById('tipeBettAll').value;
+  const nominal = parseFloat(document.getElementById('nominalBettAll').value);
+  const el = document.getElementById('hasilBettAll');
+  const excluded = "TOTO MACAU 4D , TOTO MACAU 5D , SYDNEY , KINGKONG 4D , HONGKONG";
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  if(tipe==="FULL"){
+    caption = `Jika anda memasang BETTINGAN FULL dengan nominal ${f(nominal)} Kecuali pasaran (${excluded}) maka hadiah yang anda dapat\n`+
+              `4D = ${f(nominal)} x 10,000 = ${f(nominal*10000)}\n`+
+              `3D = ${f(nominal)} x 1,000 = ${f(nominal*1000)}\n`+
+              `2D = ${f(nominal)} x 100 = ${f(nominal*100)}`;
+  } else if(tipe==="DISKON"){
+    caption = `Jika anda memasang BETTINGAN DISKON dengan nominal ${f(nominal)} Kecuali pasaran (${excluded}) maka hadiah yang anda dapat\n`+
+              `4D = ${f(nominal)} x 3,000 = ${f(nominal*3000)}\n`+
+              `3D = ${f(nominal)} x 400 = ${f(nominal*400)}\n`+
+              `2D = ${f(nominal)} x 70 = ${f(nominal*70)}`;
+  } else if(tipe==="BOLAKBALIK"){
+    caption = `Jika anda memasang BETTINGAN BOLAK BALIK dengan nominal ${f(nominal)} Kecuali pasaran (${excluded}) maka hadiah yang anda dapat\n`+
+              `4D Tepat = ${f(nominal)} x 4,000 = ${f(nominal*4000)}\n4D Terbalik = ${f(nominal)} x 200 = ${f(nominal*200)}\n`+
+              `3D Tepat = ${f(nominal)} x 400 = ${f(nominal*400)}\n3D Terbalik = ${f(nominal)} x 100 = ${f(nominal*100)}\n`+
+              `2D Tepat = ${f(nominal)} x 70 = ${f(nominal*70)}\n2D Terbalik = ${f(nominal)} x 20 = ${f(nominal*20)}`;
+  } else if(tipe==="PRIZE"){
+    caption = `Jika anda memasang BETTINGAN PRIZE dengan nominal ${f(nominal)} Kecuali pasaran (${excluded}) maka hadiah yang anda dapat\n`+
+              `PRIZE 1\n4D = ${f(nominal)} x 6,500 = ${f(nominal*6500)}\n3D = ${f(nominal)} x 650 = ${f(nominal*650)}\n2D = ${f(nominal)} x 70 = ${f(nominal*70)}\n\n`+
+              `PRIZE 2\n4D = ${f(nominal)} x 2,100 = ${f(nominal*2100)}\n3D = ${f(nominal)} x 210 = ${f(nominal*210)}\n2D = ${f(nominal)} x 20 = ${f(nominal*20)}\n\n`+
+              `PRIZE 3\n4D = ${f(nominal)} x 1,100 = ${f(nominal*1100)}\n3D = ${f(nominal)} x 110 = ${f(nominal*110)}\n2D = ${f(nominal)} x 8 = ${f(nominal*8)}`;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeBettAll').addEventListener('change', updateBettAll);
+document.getElementById('nominalBettAll').addEventListener('input', updateBettAll);
+
+function updateShioAll(){
+  const tipe = document.getElementById('tipeShioAll').value;
+  const nominal = parseFloat(document.getElementById('nominalShioAll').value);
+  const el = document.getElementById('hasilShioAll');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  if(tipe==="SHIO"){
+    const hasil = nominal*9.5 + (nominal-(nominal*0.05));
+    caption = `Jika anda memasang Shio dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 9.5 + (${f(nominal)} - (${f(nominal)} x 5%)) = ${f(Math.round(hasil))}`;
+  } else if(["TENGAHTEPI","5050","SILANGHOMO","KEMBANGKEMPIS"].includes(tipe)){
+    const hasil = nominal + (nominal - (nominal*0.02) + (nominal*0.03));
+    caption = `Jika anda memasang ${tipe.replace("5050","50-50")} dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - 2% + 3%) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="MACAUSHIO"){
+    const hasil = nominal*110 + (nominal-(nominal*0.10));
+    caption = `Jika anda memasang Macau Shio dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 110 + (${f(nominal)} - (${f(nominal)} x 10%)) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="DASAR"){
+    const hasil1 = nominal + (nominal - (nominal*0.02)) + (nominal*0.25);
+    const hasil2 = nominal + (nominal*0.10) + (nominal - (nominal*0.02));
+    caption = `Jika anda memasang Dasar dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - (${f(nominal)} x 2%) + (${f(nominal)} x 25%)) = ${f(Math.round(hasil1))} (Untuk bet Dasar tipe Ganjil / Besar)\n`+
+              `${f(nominal)} + (${f(nominal)} x 10%) + (${f(nominal)} - (${f(nominal)} x 2%)) = ${f(Math.round(hasil2))} (Untuk bet Dasar tipe Genap / Kecil)`;
+  } else if(tipe==="KOMBINASI"){
+    const hasil = nominal*2.6 + (nominal-(nominal*0.08));
+    caption = `Jika anda memasang Kombinasi dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 2.6 + (${f(nominal)} - (${f(nominal)} x 8%)) = ${f(Math.round(hasil))}`;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeShioAll').addEventListener('change', updateShioAll);
+document.getElementById('nominalShioAll').addEventListener('input', updateShioAll);
+
+/* ===================== HK & SYDNEY ===================== */
+function updateColokHk(){
+  const tipe = document.getElementById('tipeColokHk').value;
+  const nominal = parseFloat(document.getElementById('nominalColokHk').value);
+  const el = document.getElementById('hasilColokHk');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "COLOK_BEBAS":
+      caption = `Jika anda memasang Colok Bebas dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 1.5 + (${nominal} - (${nominal} x 6%)) = ${(nominal*1.5)+(nominal-(nominal*0.06))}`;
+      break;
+    case "COLOK_BEBAS_2D":
+      caption = `Jika anda memasang Colok Bebas 2D dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 7 + (${nominal} - (${nominal} x 10%)) = ${(nominal*7)+(nominal-(nominal*0.1))} (2D)\n`+
+                `${nominal} x 11 + (${nominal} - (${nominal} x 10%)) = ${(nominal*11)+(nominal-(nominal*0.1))} (3D)\n`+
+                `${nominal} x 18 + (${nominal} - (${nominal} x 10%)) = ${(nominal*18)+(nominal-(nominal*0.1))} (4D)`;
+      break;
+    case "COLOK_NAGA":
+      caption = `Jika anda memasang Colok Naga dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 23 + (${nominal} - (${nominal} x 10%)) = ${(nominal*23)+(nominal-(nominal*0.1))} (3D)\n`+
+                `${nominal} x 35 + (${nominal} - (${nominal} x 10%)) = ${(nominal*35)+(nominal-(nominal*0.1))} (4D)`;
+      break;
+    case "COLOK_JITU":
+      caption = `Jika anda memasang Colok Jitu dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 8 + (${nominal} - (${nominal} x 6%)) = ${(nominal*8)+(nominal-(nominal*0.06))}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeColokHk').addEventListener('change', updateColokHk);
+document.getElementById('nominalColokHk').addEventListener('input', updateColokHk);
+
+function updateBettHk(){
+  const tipe = document.getElementById('tipeBettHk').value;
+  const nominal = parseFloat(document.getElementById('nominalBettHk').value);
+  const el = document.getElementById('hasilBettHk');
+  const excluded = "Hongkong atau Sydney";
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  if(tipe==="FULL"){
+    caption = `Jika anda memasang BETTINGAN FULL dengan nominal ${f(nominal)}  (${excluded}) maka hadiah yang anda dapat\n`+
+              `4D = ${f(nominal)} x 9,800 = ${f(nominal*9800)}\n3D = ${f(nominal)} x 950 = ${f(nominal*980)}\n2D = ${f(nominal)} x 95 = ${f(nominal*98)}`;
+  } else if(tipe==="DISKON"){
+    caption = `Jika anda memasang BETTINGAN DISKON dengan nominal ${f(nominal)}  (${excluded}) maka hadiah yang anda dapat\n`+
+              `4D = ${f(nominal)} x 3,000 = ${f(nominal*3000)}\n3D = ${f(nominal)} x 400 = ${f(nominal*400)}\n2D = ${f(nominal)} x 70 = ${f(nominal*70)}`;
+  } else if(tipe==="BOLAKBALIK"){
+    caption = `Jika anda memasang BETTINGAN BOLAK BALIK dengan nominal ${f(nominal)}  (${excluded}) maka hadiah yang anda dapat\n`+
+              `4D Tepat = ${f(nominal)} x 4,000 = ${f(nominal*4000)}\n4D Terbalik = ${f(nominal)} x 200 = ${f(nominal*200)}\n`+
+              `3D Tepat = ${f(nominal)} x 400 = ${f(nominal*400)}\n3D Terbalik = ${f(nominal)} x 100 = ${f(nominal*100)}\n`+
+              `2D Tepat = ${f(nominal)} x 70 = ${f(nominal*70)}\n2D Terbalik = ${f(nominal)} x 20 = ${f(nominal*20)}`;
+  } else if(tipe==="PRIZE"){
+    caption = `Jika anda memasang BETTINGAN PRIZE dengan nominal ${f(nominal)}  (${excluded}) maka hadiah yang anda dapat\n`+
+              `PRIZE 1\n4D = ${f(nominal)} x 6,500 = ${f(nominal*6500)}\n3D = ${f(nominal)} x 650 = ${f(nominal*650)}\n2D = ${f(nominal)} x 70 = ${f(nominal*70)}\n\n`+
+              `PRIZE 2\n4D = ${f(nominal)} x 2,100 = ${f(nominal*2100)}\n3D = ${f(nominal)} x 210 = ${f(nominal*210)}\n2D = ${f(nominal)} x 20 = ${f(nominal*20)}\n\n`+
+              `PRIZE 3\n4D = ${f(nominal)} x 1,100 = ${f(nominal*1100)}\n3D = ${f(nominal)} x 110 = ${f(nominal*110)}\n2D = ${f(nominal)} x 8 = ${f(nominal*8)}`;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeBettHk').addEventListener('change', updateBettHk);
+document.getElementById('nominalBettHk').addEventListener('input', updateBettHk);
+
+function updateShioHk(){
+  const tipe = document.getElementById('tipeShioHk').value;
+  const nominal = parseFloat(document.getElementById('nominalShioHk').value);
+  const el = document.getElementById('hasilShioHk');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  if(tipe==="SHIO"){
+    const hasil = nominal*9.5 + (nominal-(nominal*0.05));
+    caption = `Jika anda memasang Shio dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 9,5 + (${f(nominal)} - (${f(nominal)} x 5%)) = ${f(Math.round(hasil))}`;
+  } else if(["TENGAHTEPI","5050","SILANGHOMO","KEMBANGKEMPIS"].includes(tipe)){
+    const hasil = nominal + (nominal - (nominal*0.02) + (nominal*0.03));
+    caption = `Jika anda memasang ${tipe.replace("5050","50-50")} dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - 2% + 3%) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="MACAUSHIO"){
+    const hasil = nominal*110 + (nominal-(nominal*0.10));
+    caption = `Jika anda memasang Macau Shio dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 110 + (${f(nominal)} - (${f(nominal)} x 10%)) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="DASAR"){
+    const reduced = nominal - (nominal*0.02);
+    const hasil1 = nominal + reduced + (nominal*0.25);
+    const hasil2 = nominal + (nominal*0.10) + reduced;
+    caption = `Jika anda memasang Dasar dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - (${f(nominal)} x 2%) + (${f(nominal)} x 25%)) = ${f(Math.round(hasil1))} (Untuk bet Dasar tipe Ganjil / Besar)\n`+
+              `${f(nominal)} + (${f(nominal)} x 10%) + (${f(nominal)} - (${f(nominal)} x 2%)) = ${f(Math.round(hasil2))} (Untuk bet Dasar tipe Genap / Kecil)`;
+  } else if(tipe==="KOMBINASI"){
+    const hasil = nominal*2.6 + (nominal-(nominal*0.08));
+    caption = `Jika anda memasang Kombinasi dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 2.6 + (${f(nominal)} - (${f(nominal)} x 8%)) = ${f(Math.round(hasil))}`;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeShioHk').addEventListener('change', updateShioHk);
+document.getElementById('nominalShioHk').addEventListener('input', updateShioHk);
+
+/* ===================== MACAU 4D ===================== */
+function updateColokMacau4D(){
+  const tipe = document.getElementById('tipeColokMacau4D').value;
+  const nominal = parseFloat(document.getElementById('nominalColokMacau4D').value);
+  const el = document.getElementById('hasilColokMacau4D');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "COLOK_BEBAS":
+      caption = `Jika anda memasang Colok Bebas dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 1,6 + ${f(nominal)} = ${f((nominal*1.6)+nominal)}`;
+      break;
+    case "COLOK_BEBAS_2D":
+      caption = `Jika anda memasang Colok Bebas 2D dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 7 + ${f(nominal)} = ${f((nominal*7)+nominal)} (Kategori 2D)\n`+
+                `${f(nominal)} x 13 + ${f(nominal)} = ${f((nominal*13)+nominal)} (Kategori 3D)\n`+
+                `${f(nominal)} x 21 + ${f(nominal)} = ${f((nominal*21)+nominal)} (Kategori 4D)`;
+      break;
+    case "COLOK_NAGA":
+      caption = `Jika anda memasang Colok Naga dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 27 + ${f(nominal)} = ${f((nominal*27)+nominal)} (Kategori 3D)\n`+
+                `${f(nominal)} x 41 + ${f(nominal)} = ${f((nominal*41)+nominal)} (Kategori 4D)`;
+      break;
+    case "COLOK_JITU":
+      caption = `Jika anda memasang Colok Jitu dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 8,3 + ${f(nominal)} = ${f((nominal*8.3)+nominal)}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeColokMacau4D').addEventListener('change', updateColokMacau4D);
+document.getElementById('nominalColokMacau4D').addEventListener('input', updateColokMacau4D);
+
+function updateBettMacau4D(){
+  const tipe = document.getElementById('tipeBettMacau4D').value;
+  const nominal = parseFloat(document.getElementById('nominalBettMacau4D').value);
+  const el = document.getElementById('hasilBettMacau4D');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "FULL":
+      caption = `Jika anda memasang FULL dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `4D = ${f(nominal)} x 9,000 = ${f(nominal*9000)}\n`+
+                `3D = ${f(nominal)} x 950 = ${f(nominal*950)}\n`+
+                `2D = ${f(nominal)} x 95 = ${f(nominal*95)}`;
+      break;
+    case "DISKON":
+      caption = `Jika anda memasang DISKON dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `4D = ${f(nominal)} x 6,000 = ${f(nominal*6000)}\n`+
+                `3D = ${f(nominal)} x 700 = ${f(nominal*700)}\n`+
+                `2D = ${f(nominal)} x 80 = ${f(nominal*80)}`;
+      break;
+    case "BOLAKBALIK":
+      caption = `Jika anda memasang BOLAK BALIK dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `4D Tepat = ${f(nominal)} x 4,000 = ${f(nominal*4000)}\n`+
+                `4D Terbalik = ${f(nominal)} x 200 = ${f(nominal*200)}\n`+
+                `3D Tepat = ${f(nominal)} x 400 = ${f(nominal*400)}\n`+
+                `3D Terbalik = ${f(nominal)} x 100 = ${f(nominal*100)}\n`+
+                `2D Tepat = ${f(nominal)} x 70 = ${f(nominal*70)}\n`+
+                `2D Terbalik = ${f(nominal)} x 20 = ${f(nominal*20)}`;
+      break;
+    case "SUPERDISKON":
+      caption = `Jika anda memasang SUPER DISKON dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `4D = ${f(nominal)} x 3,000 = ${f(nominal*3000)}\n`+
+                `3D = ${f(nominal)} x 400 = ${f(nominal*400)}\n`+
+                `2D = ${f(nominal)} x 70 = ${f(nominal*70)}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeBettMacau4D').addEventListener('change', updateBettMacau4D);
+document.getElementById('nominalBettMacau4D').addEventListener('input', updateBettMacau4D);
+
+function updateShioMacau4D(){
+  const tipe = document.getElementById('tipeShioMacau4D').value;
+  const nominal = parseFloat(document.getElementById('nominalShioMacau4D').value);
+  const el = document.getElementById('hasilShioMacau4D');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "SHIO":
+      caption = `Jika anda memasang Shio dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 10 + (${f(nominal)} - (${f(nominal)} x0%)) = ${f(nominal*11)}`;
+      break;
+    case "TENGAHTEPI":
+      caption = `Jika anda memasang Tengah Tepi dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} + (${f(nominal)} + 2,2%) = ${f(Math.round(nominal*2.022))}`;
+      break;
+    case "5050":
+      caption = `Jika anda memasang 50-50 dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} + (${f(nominal)} + 5%) = ${f(Math.round(nominal*2.05))}`;
+      break;
+    case "SILANGHOMO":
+      caption = `Jika anda memasang Silang Homo dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} + (${f(nominal)} + 2,2%) = ${f(Math.round(nominal*2.022))}`;
+      break;
+    case "KEMBANGKEMPIS":
+      caption = `Jika anda memasang Kembang Kempis dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} + (${f(nominal)} + 2,2%) = ${f(Math.round(nominal*2.022))}`;
+      break;
+    case "MACAUSHIO":
+      caption = `Jika anda memasang Macau Shio dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 110 + (${f(nominal)} - (0%)) = ${f(nominal*110)}`;
+      break;
+    case "DASAR":
+      caption = `Jika anda memasang Dasar dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} + (${f(nominal)} - (${f(nominal)} x 2%) + (${f(nominal)} x 25%)) = ${f(Math.round(2230))} (Ganjil / Besar)\n`+
+                `${f(nominal)} + (${f(nominal)} x 10%) + (${f(nominal)} - (${f(nominal)} x 2%)) = ${f(Math.round(2080))} (Genap / Kecil)`;
+      break;
+    case "KOMBINASI":
+      const hasilK = (nominal*2.8) + nominal;
+      caption = `Jika anda memasang Kombinasi dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 2.8 + ${f(nominal)} (${f(nominal)} - (0,0%)) = ${f(Math.round(hasilK))}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeShioMacau4D').addEventListener('change', updateShioMacau4D);
+document.getElementById('nominalShioMacau4D').addEventListener('input', updateShioMacau4D);
+
+/* ===================== MACAU 5D ===================== */
+function updateColokMacau5D(){
+  const tipe = document.getElementById('tipeColokMacau5D').value;
+  const nominal = parseFloat(document.getElementById('nominalColokMacau5D').value);
+  const el = document.getElementById('hasilColokMacau5D');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "COLOK_BEBAS":
+      caption = `Jika anda memasang Colok Bebas dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 0,9 + ${f(nominal)} = ${f(Math.round(nominal*0.9 + nominal))}`;
+      break;
+    case "COLOK_BEBAS_2D":
+      caption = `Jika anda memasang Colok Bebas 2D dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 4 + (${f(nominal)}-(0%)) = ${f(nominal*4 + nominal)}\n`+
+                `${f(nominal)} x 6 + (${f(nominal)}-(0%)) = ${f(nominal*6 + nominal)}\n`+
+                `${f(nominal)} x 20 + (${f(nominal)}-(0%)) = ${f(nominal*20 + nominal)}\n`+
+                `${f(nominal)} x 200 + (${f(nominal)}-(0%)) = ${f(nominal*200 + nominal)}`;
+      break;
+    case "COLOK_BEBAS_4D":
+      caption = `Jika anda memasang Colok Bebas 4D dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 50 + (${f(nominal)}-(0%)) = ${f(nominal*50 + nominal)}\n`+
+                `${f(nominal)} x 200 + (${f(nominal)}-(0%)) = ${f(nominal*200 + nominal)}`;
+      break;
+    case "COLOK_NAGA":
+      caption = `Jika anda memasang Colok Naga dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 12 + (${f(nominal)}-(0%)) = ${f(nominal*12 + nominal)} (Kategori 3D)\n`+
+                `${f(nominal)} x 30 + (${f(nominal)}-(0%)) = ${f(nominal*30 + nominal)} (Kategori 4D)\n`+
+                `${f(nominal)} x 125 + (${f(nominal)}-(0%)) = ${f(nominal*125 + nominal)} (Kategori 5D)`;
+      break;
+    case "COLOK_JITU":
+      caption = `Jika anda memasang Colok Jitu dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 8 + ${f(nominal)} = ${f(nominal*8 + nominal)}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeColokMacau5D').addEventListener('change', updateColokMacau5D);
+document.getElementById('nominalColokMacau5D').addEventListener('input', updateColokMacau5D);
+
+function updateBettMacau5D(){
+  const tipe = document.getElementById('tipeBettMacau5D').value;
+  const nominal = parseFloat(document.getElementById('nominalBettMacau5D').value);
+  const el = document.getElementById('hasilBettMacau5D');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "FULL":
+      caption = `Jika anda memasang FULL dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `5D = ${f(nominal)} x 88,000 = ${f(nominal*88000)}\n`+
+                `4D = ${f(nominal)} x 9,000 = ${f(nominal*9000)}\n`+
+                `3D = ${f(nominal)} x 950 = ${f(nominal*950)}\n`+
+                `2D = ${f(nominal)} x 95 = ${f(nominal*95)}`;
+      break;
+    case "DISKON":
+      caption = `Jika anda memasang DISKON dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `5D = ${f(nominal)} x 50,000 = ${f(nominal*50000)}\n`+
+                `4D = ${f(nominal)} x 7,000 = ${f(nominal*7000)}\n`+
+                `3D = ${f(nominal)} x 750 = ${f(nominal*750)}\n`+
+                `2D = ${f(nominal)} x 75 = ${f(nominal*75)}`;
+      break;
+    case "BOLAKBALIK":
+      caption = `Jika anda memasang BOLAK BALIK dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `5D Tepat = ${f(nominal)} x 50,000 = ${f(nominal*50000)}\n`+
+                `5D Terbalik = ${f(nominal)} x 350 = ${f(nominal*350)}\n`+
+                `4D Tepat = ${f(nominal)} x 5,000 = ${f(nominal*5000)}\n`+
+                `4D Terbalik = ${f(nominal)} x 180 = ${f(nominal*180)}\n`+
+                `3D Tepat = ${f(nominal)} x 500 = ${f(nominal*500)}\n`+
+                `3D Terbalik = ${f(nominal)} x 75 = ${f(nominal*75)}\n`+
+                `2D Tepat = ${f(nominal)} x 80 = ${f(nominal*80)}\n`+
+                `2D Terbalik = ${f(nominal)} x 15 = ${f(nominal*15)}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeBettMacau5D').addEventListener('change', updateBettMacau5D);
+document.getElementById('nominalBettMacau5D').addEventListener('input', updateBettMacau5D);
+
+function updateShioMacau5D(){
+  const tipe = document.getElementById('tipeShioMacau5D').value;
+  const nominal = parseFloat(document.getElementById('nominalShioMacau5D').value);
+  const el = document.getElementById('hasilShioMacau5D');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "SHIO":
+      caption = `Jika anda memasang Shio dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 10 + (${f(nominal)} - (${f(nominal)} x0%)) = ${f(nominal*11)}`;
+      break;
+    case "TENGAHTEPI":
+      caption = `Jika anda memasang Tengah Tepi dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} + (${f(nominal)} + 2,2%) = ${f(Math.round(nominal*2.022))}`;
+      break;
+    case "5050":
+      caption = `Jika anda memasang 50-50 dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} + (${f(nominal)} + 5%) = ${f(Math.round(nominal*2.05))}`;
+      break;
+    case "DASAR":
+      caption = `Jika anda memasang Dasar dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} + (${f(nominal)} - (${f(nominal)} x 2%) + (${f(nominal)} x 25%)) = ${f(Math.round(2230))} (Ganjil / Besar)\n`+
+                `${f(nominal)} + (${f(nominal)} x 10%) + (${f(nominal)} - (${f(nominal)} x 2%)) = ${f(Math.round(2080))} (Genap / Kecil)`;
+      break;
+    case "KOMBINASI":
+      const hasilK5 = (nominal*2.7) + nominal;
+      caption = `Jika anda memasang Kombinasi dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 2.7 + ${f(nominal)} (${f(nominal)} - (0,0%)) = ${f(Math.round(hasilK5))}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeShioMacau5D').addEventListener('change', updateShioMacau5D);
+document.getElementById('nominalShioMacau5D').addEventListener('input', updateShioMacau5D);
+
+/* ===================== JAKARTA ===================== */
+function updateColokJakarta(){
+  const tipe = document.getElementById('tipeColokJakarta').value;
+  const nominal = parseFloat(document.getElementById('nominalColokJakarta').value);
+  const el = document.getElementById('hasilColokJakarta');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "COLOK_BEBAS":
+      caption = `Jika anda memasang Colok Bebas di JAKARTA dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 1.6 + (${nominal} - (${nominal} x 6%)) = ${(nominal*1.6)+(nominal-(nominal*0.06))}`;
+      break;
+    case "COLOK_BEBAS_2D":
+      caption = `Jika anda memasang Colok Bebas 2D di JAKARTA dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 7 + (${nominal} - (${nominal} x 10%)) = ${(nominal*7)+(nominal-(nominal*0.10))} (Kategori 2D)\n`+
+                `${nominal} x 13 + (${nominal} - (${nominal} x 10%)) = ${(nominal*13)+(nominal-(nominal*0.10))} (Kategori 3D)\n`+
+                `${nominal} x 21 + (${nominal} - (${nominal} x 10%)) = ${(nominal*21)+(nominal-(nominal*0.10))} (Kategori 4D)`;
+      break;
+    case "COLOK_NAGA":
+      caption = `Jika anda memasang Colok Naga di JAKARTA dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 23 + (${nominal} - (${nominal} x 10%)) = ${(nominal*23)+(nominal-(nominal*0.10))} (Kategori 3D)\n`+
+                `${nominal} x 35 + (${nominal} - (${nominal} x 10%)) = ${(nominal*35)+(nominal-(nominal*0.10))} (Kategori 4D)`;
+      break;
+    case "COLOK_JITU":
+      caption = `Jika anda memasang Colok Jitu di JAKARTA dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 8.3 + (${nominal} - (${nominal} x 6%)) = ${(nominal*8.3)+(nominal-(nominal*0.06))}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeColokJakarta').addEventListener('change', updateColokJakarta);
+document.getElementById('nominalColokJakarta').addEventListener('input', updateColokJakarta);
+
+function updateBettJakarta(){
+  const tipe = document.getElementById('tipeBettJakarta').value;
+  const nominal = parseFloat(document.getElementById('nominalBettJakarta').value);
+  const el = document.getElementById('hasilBettJakarta');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  if(tipe==="FULL"){
+    caption = `Jika anda memasang BETTINGAN FULL di JAKARTA dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `4D = ${f(nominal)} x 10,000 = ${f(nominal*10000)}\n`+
+              `3D = ${f(nominal)} x 1,000 = ${f(nominal*1000)}\n`+
+              `2D = ${f(nominal)} x 100 = ${f(nominal*100)}`;
+  } else if(tipe==="DISKON"){
+    caption = `Jika anda memasang BETTINGAN DISKON di JAKARTA dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `4D = ${f(nominal)} x 3,000 = ${f(nominal*3000)}\n`+
+              `3D = ${f(nominal)} x 400 = ${f(nominal*400)}\n`+
+              `2D = ${f(nominal)} x 70 = ${f(nominal*70)}`;
+  } else if(tipe==="BOLAKBALIK"){
+    caption = `Jika anda memasang BETTINGAN BOLAK BALIK di JAKARTA dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `4D Tepat = ${f(nominal)} x 4,000 = ${f(nominal*4000)}\n`+
+              `4D Terbalik = ${f(nominal)} x 200 = ${f(nominal*200)}\n`+
+              `3D Tepat = ${f(nominal)} x 400 = ${f(nominal*400)}\n`+
+              `3D Terbalik = ${f(nominal)} x 100 = ${f(nominal*100)}\n`+
+              `2D Tepat = ${f(nominal)} x 70 = ${f(nominal*70)}\n`+
+              `2D Terbalik = ${f(nominal)} x 20 = ${f(nominal*20)}`;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeBettJakarta').addEventListener('change', updateBettJakarta);
+document.getElementById('nominalBettJakarta').addEventListener('input', updateBettJakarta);
+
+function updateShioJakarta(){
+  const tipe = document.getElementById('tipeShioJakarta').value;
+  const nominal = parseFloat(document.getElementById('nominalShioJakarta').value);
+  const el = document.getElementById('hasilShioJakarta');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  if(tipe==="SHIO"){
+    const hasil = nominal*10 + (nominal-(nominal*0.05));
+    caption = `Jika anda memasang Shio di JAKARTA dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 10 + (${f(nominal)} - (${f(nominal)} x 5%)) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="TENGAHTEPI"){
+    const hasil = nominal + (nominal - (nominal*0.02) + (nominal*0.022));
+    caption = `Jika anda memasang Tengah Tepi di JAKARTA dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - 2% + 2,2%) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="5050"){
+    const diskon = nominal*0.02;
+    const bonus = (nominal-diskon)*0.05;
+    const hasil = nominal + (nominal-diskon+bonus);
+    caption = `Jika anda memasang 50-50 di JAKARTA dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - 2% + 5%) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="SILANGHOMO"){
+    const hasil = nominal + (nominal - (nominal*0.02) + (nominal*0.022));
+    caption = `Jika anda memasang SILANG HOMO di JAKARTA dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - 2% + 2,2%) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="KEMBANGKEMPIS"){
+    const hasil = nominal + (nominal - (nominal*0.02) + (nominal*0.022));
+    caption = `Jika anda memasang KEMBANG KEMPIS di JAKARTA dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - 2% + 2,2%) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="MACAUSHIO"){
+    const hasil = nominal*110 + (nominal-(nominal*0.10));
+    caption = `Jika anda memasang Macau Shio di JAKARTA dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 110 + (${f(nominal)} - (${f(nominal)} x 10%)) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="KOMBINASI"){
+    const hasil = (nominal*2.8) + nominal;
+    caption = `Jika anda memasang Kombinasi dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 2.8 + ${f(nominal)} (${f(nominal)} - (0,0%)) = ${f(Math.round(hasil))}`;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeShioJakarta').addEventListener('change', updateShioJakarta);
+document.getElementById('nominalShioJakarta').addEventListener('input', updateShioJakarta);
+
+/* ===================== TOTOMALI ===================== */
+function updateColokTotomali(){
+  const tipe = document.getElementById('tipeColokTotomali').value;
+  const nominal = parseFloat(document.getElementById('nominalColokTotomali').value);
+  const el = document.getElementById('hasilColokTotomali');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "COLOK_BEBAS":
+      caption = `Jika anda memasang Colok Bebas dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 1.6 + (${nominal} - (${nominal} x 6%)) = ${(nominal*1.6)+(nominal-(nominal*0.06))}`;
+      break;
+    case "COLOK_BEBAS_2D":
+      caption = `Jika anda memasang Colok Bebas 2D dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 7 + (${nominal} - (${nominal} x 10%)) = ${(nominal*7)+(nominal-(nominal*0.10))} (Kategori 2D)\n`+
+                `${nominal} x 13 + (${nominal} - (${nominal} x 10%)) = ${(nominal*13)+(nominal-(nominal*0.10))} (Kategori 3D)\n`+
+                `${nominal} x 21 + (${nominal} - (${nominal} x 10%)) = ${(nominal*21)+(nominal-(nominal*0.10))} (Kategori 4D)`;
+      break;
+    case "COLOK_NAGA":
+      caption = `Jika anda memasang Colok Naga dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 27 + (${nominal} - (${nominal} x 10%)) = ${(nominal*27)+(nominal-(nominal*0.10))} (Kategori 3D)\n`+
+                `${nominal} x 41 + (${nominal} - (${nominal} x 10%)) = ${(nominal*41)+(nominal-(nominal*0.10))} (Kategori 4D)`;
+      break;
+    case "COLOK_JITU":
+      caption = `Jika anda memasang Colok Jitu dengan nominal ${nominal} maka hadiah yang anda dapat\n`+
+                `${nominal} x 8.3 + (${nominal} - (${nominal} x 6%)) = ${(nominal*8.3)+(nominal-(nominal*0.06))}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeColokTotomali').addEventListener('change', updateColokTotomali);
+document.getElementById('nominalColokTotomali').addEventListener('input', updateColokTotomali);
+
+function updateBettTotomali(){
+  const tipe = document.getElementById('tipeBettTotomali').value;
+  const nominal = parseFloat(document.getElementById('nominalBettTotomali').value);
+  const el = document.getElementById('hasilBettTotomali');
+  const excluded = "TOTO MACAU 4D , TOTO MACAU 5D , SYDNEY , KINGKONG 4D , HONGKONG";
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  if(tipe==="FULL"){
+    caption = `Jika anda memasang BETTINGAN FULL dengan nominal ${f(nominal)} Kecuali pasaran (${excluded}) maka hadiah yang anda dapat\n`+
+              `4D = ${f(nominal)} x 10,000 = ${f(nominal*10000)}\n`+
+              `3D = ${f(nominal)} x 1,000 = ${f(nominal*1000)}\n`+
+              `2D = ${f(nominal)} x 100 = ${f(nominal*100)}`;
+  } else if(tipe==="DISKON"){
+    caption = `Jika anda memasang BETTINGAN DISKON dengan nominal ${f(nominal)} Kecuali pasaran (${excluded}) maka hadiah yang anda dapat\n`+
+              `4D = ${f(nominal)} x 3,000 = ${f(nominal*3000)}\n`+
+              `3D = ${f(nominal)} x 400 = ${f(nominal*400)}\n`+
+              `2D = ${f(nominal)} x 70 = ${f(nominal*70)}`;
+  } else if(tipe==="BOLAKBALIK"){
+    caption = `Jika anda memasang BETTINGAN BOLAK BALIK dengan nominal ${f(nominal)} Kecuali pasaran (${excluded}) maka hadiah yang anda dapat\n`+
+              `4D Tepat = ${f(nominal)} x 4,000 = ${f(nominal*4000)}\n4D Terbalik = ${f(nominal)} x 200 = ${f(nominal*200)}\n`+
+              `3D Tepat = ${f(nominal)} x 400 = ${f(nominal*400)}\n3D Terbalik = ${f(nominal)} x 100 = ${f(nominal*100)}\n`+
+              `2D Tepat = ${f(nominal)} x 70 = ${f(nominal*70)}\n2D Terbalik = ${f(nominal)} x 20 = ${f(nominal*20)}`;
+  } else if(tipe==="PRIZE"){
+    caption = `Jika anda memasang BETTINGAN PRIZE dengan nominal ${f(nominal)} Kecuali pasaran (${excluded}) maka hadiah yang anda dapat\n`+
+              `PRIZE 1\n4D = ${f(nominal)} x 6,500 = ${f(nominal*6500)}\n3D = ${f(nominal)} x 650 = ${f(nominal*650)}\n2D = ${f(nominal)} x 70 = ${f(nominal*70)}\n\n`+
+              `PRIZE 2\n4D = ${f(nominal)} x 2,100 = ${f(nominal*2100)}\n3D = ${f(nominal)} x 210 = ${f(nominal*210)}\n2D = ${f(nominal)} x 20 = ${f(nominal*20)}\n\n`+
+              `PRIZE 3\n4D = ${f(nominal)} x 1,100 = ${f(nominal*1100)}\n3D = ${f(nominal)} x 110 = ${f(nominal*110)}\n2D = ${f(nominal)} x 8 = ${f(nominal*8)}`;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeBettTotomali').addEventListener('change', updateBettTotomali);
+document.getElementById('nominalBettTotomali').addEventListener('input', updateBettTotomali);
+
+function updateShioTotomali(){
+  const tipe = document.getElementById('tipeShioTotomali').value;
+  const nominal = parseFloat(document.getElementById('nominalShioTotomali').value);
+  const el = document.getElementById('hasilShioTotomali');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  if(tipe==="SHIO"){
+    const hasil = nominal*10 + (nominal-(nominal*0.05));
+    caption = `Jika anda memasang Shio di TOTOMALI dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 10 + (${f(nominal)} - (${f(nominal)} x 5%)) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="TENGAHTEPI"){
+    const hasil = nominal + (nominal-(nominal*0.02)+(nominal*0.022));
+    caption = `Jika anda memasang Tengah Tepi di TOTOMALI dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - 2% + 2,2%) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="5050"){
+    const diskon = nominal*0.02;
+    const bonus = (nominal-diskon)*0.05;
+    const hasil = nominal + (nominal-diskon+bonus);
+    caption = `Jika anda memasang 50-50 di TOTOMALI dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - 2% + 5%) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="SILANGHOMO"){
+    const hasil = nominal + (nominal-(nominal*0.02)+(nominal*0.022));
+    caption = `Jika anda memasang SILANG HOMO di TOTOMALI dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - 2% + 2,2%) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="KEMBANGKEMPIS"){
+    const hasil = nominal + (nominal-(nominal*0.02)+(nominal*0.022));
+    caption = `Jika anda memasang KEMBANG KEMPIS di TOTOMALI dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - 2% + 2,2%) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="MACAUSHIO"){
+    const hasil = nominal*110 + (nominal-(nominal*0.10));
+    caption = `Jika anda memasang Macau Shio dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 110 + (${f(nominal)} - (${f(nominal)} x 10%)) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="DASAR"){
+    const diskon = nominal*0.02;
+    const hasil1 = nominal + (nominal-diskon+(nominal*0.25));
+    const hasil2 = nominal + (nominal*0.10) + (nominal-diskon);
+    caption = `Jika anda memasang Dasar dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - (${f(nominal)} x 2%) + (${f(nominal)} x 25%)) = ${f(Math.round(hasil1))} (Untuk bet Dasar tipe Ganjil / Besar)\n`+
+              `${f(nominal)} + (${f(nominal)} x 10%) + (${f(nominal)} - (${f(nominal)} x 2%)) = ${f(Math.round(hasil2))} (Untuk bet Dasar tipe Genap / Kecil)`;
+  } else if(tipe==="KOMBINASI"){
+    const hasil = nominal*2.8 + (nominal-(nominal*0.08));
+    caption = `Jika anda memasang Kombinasi dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 2.8 + (${f(nominal)} - (${f(nominal)} x 8%)) = ${f(Math.round(hasil))}`;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeShioTotomali').addEventListener('change', updateShioTotomali);
+document.getElementById('nominalShioTotomali').addEventListener('input', updateShioTotomali);
+
+/* ===================== HOKIDRAW ===================== */
+function updateColokHokidraw(){
+  const tipe = document.getElementById('tipeColokHokidraw').value;
+  const nominal = parseFloat(document.getElementById('nominalColokHokidraw').value);
+  const el = document.getElementById('hasilColokHokidraw');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "COLOK_BEBAS":
+      const hasil = (nominal*0.9) + (nominal-(nominal*0.06));
+      caption = `Jika anda memasang Colok Bebas di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 0,9 + (${f(nominal)} - (${f(nominal)} x 6%)) = ${f(Math.round(hasil))}`;
+      break;
+    case "COLOK_BEBAS_2D":
+      const h2D = (nominal*4)+(nominal-(nominal*0.10));
+      const h3D = (nominal*6)+(nominal-(nominal*0.10));
+      const h4D = (nominal*20)+(nominal-(nominal*0.10));
+      caption = `Jika anda memasang Colok Bebas 2D di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 4 + (${f(nominal)} - (${f(nominal)} x 10%)) = ${f(Math.round(h2D))} (Kategori 2D)\n`+
+                `${f(nominal)} x 6 + (${f(nominal)} - (${f(nominal)} x 10%)) = ${f(Math.round(h3D))} (Kategori 3D)\n`+
+                `${f(nominal)} x 20 + (${f(nominal)} - (${f(nominal)} x 10%)) = ${f(Math.round(h4D))} (Kategori 4D)`;
+      break;
+    case "COLOK_BEBAS_2D5":
+      const h2d5 = (nominal*200)+(nominal-(nominal*0.10));
+      caption = `Jika anda memasang Colok Bebas 2D(5) di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 200 + (${f(nominal)} - (${f(nominal)} x 10%)) = ${f(Math.round(h2d5))}`;
+      break;
+    case "COLOK_NAGA":
+      caption = `Jika anda memasang Colok Naga di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 12 + (${f(nominal)} - (${f(nominal)} x 10%)) = ${f(Math.round(nominal*12+(nominal-(nominal*0.10))))} (Kategori 3D)\n`+
+                `${f(nominal)} x 30 + (${f(nominal)} - (${f(nominal)} x 10%)) = ${f(Math.round(nominal*30+(nominal-(nominal*0.10))))} (Kategori 4D)`;
+      break;
+    case "COLOK_JITU":
+      caption = `Jika anda memasang Colok Jitu di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `${f(nominal)} x 8 + (${f(nominal)} - (${f(nominal)} x 6%)) = ${f(Math.round(nominal*8+(nominal-(nominal*0.06))))}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeColokHokidraw').addEventListener('change', updateColokHokidraw);
+document.getElementById('nominalColokHokidraw').addEventListener('input', updateColokHokidraw);
+
+function updateBettHokidraw(){
+  const tipe = document.getElementById('tipeBettHokidraw').value;
+  const nominal = parseFloat(document.getElementById('nominalBettHokidraw').value);
+  const el = document.getElementById('hasilBettHokidraw');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  switch(tipe){
+    case "FULL":
+      caption = `Jika anda memasang FULL di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `4D = ${f(nominal)} x 10,000 = ${f(nominal*10000)}\n`+
+                `3D = ${f(nominal)} x 1,000 = ${f(nominal*1000)}\n`+
+                `2D = ${f(nominal)} x 100 = ${f(nominal*100)}`;
+      break;
+    case "DISKON":
+      caption = `Jika anda memasang DISKON di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `4D = ${f(nominal)} x 7,000 = ${f(nominal*7000)}\n`+
+                `3D = ${f(nominal)} x 750 = ${f(nominal*750)}\n`+
+                `2D = ${f(nominal)} x 75 = ${f(nominal*75)}`;
+      break;
+    case "BOLAKBALIK":
+      caption = `Jika anda memasang BOLAK BALIK di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `4D Tepat = ${f(nominal)} x 5,000 = ${f(nominal*5000)}\n`+
+                `4D Terbalik = ${f(nominal)} x 180 = ${f(nominal*180)}\n`+
+                `3D Tepat = ${f(nominal)} x 500 = ${f(nominal*500)}\n`+
+                `3D Terbalik = ${f(nominal)} x 75 = ${f(nominal*75)}\n`+
+                `2D Tepat = ${f(nominal)} x 80 = ${f(nominal*80)}\n`+
+                `2D Terbalik = ${f(nominal)} x 15 = ${f(nominal*15)}`;
+      break;
+    case "DISKON5D":
+      caption = `Jika anda memasang DISKON 5D di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `Diskon : 38%\n`+
+                `5D = ${f(nominal)} x 50,000 = ${f(nominal*50000)}`;
+      break;
+    case "FULL5D":
+      caption = `Jika anda memasang BET FULL 5D di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `Diskon : 0%\n`+
+                `5D = ${f(nominal)} x 88,000 = ${f(nominal*88000)}`;
+      break;
+    case "TEPAT5D":
+      caption = `Jika anda memasang 5D TEPAT di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+                `Diskon : 0%\n`+
+                `5D = ${f(nominal)} x 50,000 = ${f(nominal*50000)}`;
+      break;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeBettHokidraw').addEventListener('change', updateBettHokidraw);
+document.getElementById('nominalBettHokidraw').addEventListener('input', updateBettHokidraw);
+
+function updateShioHokidraw(){
+  const tipe = document.getElementById('tipeShioHokidraw').value;
+  const nominal = parseFloat(document.getElementById('nominalShioHokidraw').value);
+  const el = document.getElementById('hasilShioHokidraw');
+  if(!tipe || !nominal){ showResult(el,''); return; }
+  let caption="";
+  if(tipe==="SHIO"){
+    const hasil = nominal*9.5 + (nominal-(nominal*0.05));
+    caption = `Jika anda memasang Shio di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 9.5 + (${f(nominal)} - (${f(nominal)} x 5%)) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="TENGAHTEPI"){
+    caption = `Jika anda memasang Tengah Tepi di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} + 2,2%) = ${f(Math.round(nominal*2.002))}`;
+  } else if(tipe==="5050"){
+    caption = `Jika anda memasang 50-50 di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} + 2,2%) = ${f(Math.round(nominal*2.002))}`;
+  } else if(tipe==="SILANGHOMO"){
+    caption = `Jika anda memasang Silang homo di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 2 + (${f(nominal)} - (0%)) = ${f(Math.round((nominal*2)+10))}`;
+  } else if(tipe==="DASAR"){
+    caption = `Jika anda memasang Dasar di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} + (${f(nominal)} - (${f(nominal)} x 2%) + (${f(nominal)} x 25%)) = ${f(Math.round(2230))} (Ganjil / Besar)\n`+
+              `${f(nominal)} + (${f(nominal)} x 10%) + (${f(nominal)} - (${f(nominal)} x 2%)) = ${f(Math.round(2080))} (Genap / Kecil)`;
+  } else if(tipe==="KEMBANGKEMPIS"){
+    caption = `Jika anda memasang Kembang Kempis di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 2 + (${f(nominal)} - (0%)) = ${f(Math.round((nominal*2)+10))}`;
+  } else if(tipe==="MACAUSHIO"){
+    const hasil = (nominal*110)+(nominal-(nominal*0.10));
+    caption = `Jika anda memasang Macau Shio di HOKIDRAW dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 110 + (${f(nominal)} - (${f(nominal)} x 10%)) = ${f(Math.round(hasil))}`;
+  } else if(tipe==="KOMBINASI"){
+    const hasil = nominal*2.7 + (nominal-(nominal*0.08));
+    caption = `Jika anda memasang Kombinasi dengan nominal ${f(nominal)} maka hadiah yang anda dapat\n`+
+              `${f(nominal)} x 2.7 + (${f(nominal)} - (${f(nominal)} x 8%)) = ${f(Math.round(hasil))}`;
+  }
+  showResult(el, caption);
+}
+document.getElementById('tipeShioHokidraw').addEventListener('change', updateShioHokidraw);
+document.getElementById('nominalShioHokidraw').addEventListener('input', updateShioHokidraw);
+</script>
+</body>
+</html>
