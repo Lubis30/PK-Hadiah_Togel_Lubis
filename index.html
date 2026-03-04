@@ -903,6 +903,109 @@
 </div>
 
 <script>
+/* ===== PROTECTION ===== */
+(function(){
+  // Overlay peringatan
+  function showWarning(){
+    let ov = document.getElementById('__warn__');
+    if(ov){ ov.style.display='flex'; return; }
+    ov = document.createElement('div');
+    ov.id = '__warn__';
+    ov.style.cssText = `
+      position:fixed;inset:0;z-index:99999;
+      background:rgba(5,5,8,0.97);
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      font-family:'Orbitron',sans-serif;
+      cursor:pointer;
+    `;
+    ov.innerHTML = `
+      <div style="
+        text-align:center;
+        padding:40px;
+        border:1px solid #c8a84b55;
+        border-radius:8px;
+        background:linear-gradient(135deg,#0d0d14,#1a1408);
+        box-shadow:0 0 60px #ffd70022, 0 0 120px #00000099;
+        max-width:480px;
+      ">
+        <div style="
+          font-size:clamp(22px,6vw,48px);
+          font-weight:900;
+          line-height:1.1;
+          margin-bottom:16px;
+          background:linear-gradient(180deg,#fff5cc,#FFD700,#c87000);
+          -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+          background-clip:text;
+          filter:drop-shadow(0 2px 0 #8a440077) drop-shadow(0 0 30px #ffd70044);
+        ">JANGAN CURI<br>BUAT SENDIRI DONG</div>
+        <div style="
+          font-family:'Share Tech Mono',monospace;
+          font-size:11px;
+          letter-spacing:4px;
+          color:#00e5ff;
+          margin-bottom:8px;
+          text-shadow:0 0 15px #00e5ff88;
+        ">PK HADIAH TOGEL LUBIS</div>
+        <div style="
+          font-family:'Share Tech Mono',monospace;
+          font-size:10px;
+          letter-spacing:2px;
+          color:#7a6a40;
+          margin-top:20px;
+        ">[ KLIK UNTUK MENUTUP ]</div>
+      </div>
+    `;
+    ov.addEventListener('click', ()=>{ ov.style.display='none'; });
+    document.body.appendChild(ov);
+  }
+
+  // Blokir klik kanan
+  document.addEventListener('contextmenu', function(e){
+    e.preventDefault();
+    showWarning();
+  });
+
+  // Blokir keyboard shortcuts
+  document.addEventListener('keydown', function(e){
+    const k = e.key.toLowerCase();
+    // F12
+    if(e.key==='F12'){ e.preventDefault(); showWarning(); return; }
+    // Ctrl/Cmd + Shift + I/J/C/K/U
+    if((e.ctrlKey||e.metaKey) && e.shiftKey && ['i','j','c','k'].includes(k)){
+      e.preventDefault(); showWarning(); return;
+    }
+    // Ctrl/Cmd + U (view source)
+    if((e.ctrlKey||e.metaKey) && k==='u'){ e.preventDefault(); showWarning(); return; }
+    // Ctrl/Cmd + S (save)
+    if((e.ctrlKey||e.metaKey) && k==='s'){ e.preventDefault(); showWarning(); return; }
+    // Ctrl/Cmd + A (select all)
+    if((e.ctrlKey||e.metaKey) && k==='a'){ e.preventDefault(); showWarning(); return; }
+    // Ctrl/Cmd + P (print)
+    if((e.ctrlKey||e.metaKey) && k==='p'){ e.preventDefault(); showWarning(); return; }
+  });
+
+  // Deteksi DevTools terbuka via ukuran window
+  let devOpen = false;
+  function checkDevTools(){
+    const threshold = 160;
+    const widthDiff  = window.outerWidth  - window.innerWidth;
+    const heightDiff = window.outerHeight - window.innerHeight;
+    if((widthDiff > threshold || heightDiff > threshold) && !devOpen){
+      devOpen = true;
+      showWarning();
+    } else if(widthDiff <= threshold && heightDiff <= threshold){
+      devOpen = false;
+    }
+  }
+  setInterval(checkDevTools, 1000);
+
+  // Blokir drag & select teks
+  document.addEventListener('selectstart', function(e){ e.preventDefault(); });
+  document.addEventListener('dragstart',   function(e){ e.preventDefault(); });
+
+})();
+
 /* ===== STARS ===== */
 const starsEl = document.getElementById('stars');
 for(let i=0;i<60;i++){
